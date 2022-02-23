@@ -4,6 +4,7 @@ metadata:
   labels:
     app: argo-pipeline
   name: web
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -47,6 +48,7 @@ metadata:
   labels:
     app: argo-pipeline
   name: argo-pipeline-service
+  namespace: default
 spec:
   externalTrafficPolicy: Cluster
   ports:
