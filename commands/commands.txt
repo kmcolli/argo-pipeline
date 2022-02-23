@@ -19,4 +19,3 @@ spec:
     persistentVolumeClaim:
       claimName: argo-pipeline-source-pvc
 EOF
-
