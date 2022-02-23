@@ -1,0 +1,8 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  name: argo-pipeline-app
+spec:
+  serviceAccountName: pipeline-account
+  triggers:
+    - triggerRef: argo-pipeline-trigger

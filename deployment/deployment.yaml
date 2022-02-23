@@ -2,14 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: ich-www
-  name: ich-www
-  namespace: ich
+    app: argo-pipeline
+  name: web
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ich-www
+      app: argo-pipeline
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,12 +17,12 @@ spec:
   template:
     metadata:
       labels:
-        app: ich-www
+        app: argo-pipeline
     spec:
       containers:
       - imagePullPolicy: IfNotPresent
-        image: us.icr.io/ich/ich-www
-        name: ich-www
+        image: us.icr.io/argo-pipeline/web
+        name: web
         ports:
         - containerPort: 80
           protocol: TCP
@@ -46,9 +45,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: ich-www
-  name: ich-www-service
-  namespace: ich
+    app: argo-pipeline
+  name: argo-pipeline-service
 spec:
   externalTrafficPolicy: Cluster
   ports:
@@ -63,6 +61,6 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: ich-www
+    app: argo-pipeline
   sessionAffinity: None
   type: LoadBalancer
