@@ -1,6 +1,7 @@
 FROM nginx:latest
 # deploy specific nginx configuration file
-COPY /argo-pipeline-source-pvc/environments/nginx.conf /etc/nginx/nginx.conf
+
+COPY environments/nginx.conf /etc/nginx/nginx.conf
 COPY site/index.html /etc/nginx/html/index.html
 # support running as arbitrary user which belogs to the root group
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx  && chmod -R g+w /etc/nginx

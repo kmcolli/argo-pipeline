@@ -38,14 +38,12 @@ spec:
           value: "true"
     - name: source-to-image
       taskRef:
-        name: kaniko
+        name: buildah
       runAfter:
         - clone-repo
       workspaces:
         - name: source
           workspace: git-source
       params:
-        - name: CONTEXT
-          value: $(params.pathToContext)
         - name: IMAGE
           value: $(params.imageUrl):$(params.imageTag)
