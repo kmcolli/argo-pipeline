@@ -3,6 +3,6 @@ kind: EventListener
 metadata:
   name: argo-pipeline-app
 spec:
-  serviceAccountName: pipeline-account
+  serviceAccountName: pipeline
   triggers:
     - triggerRef: argo-pipeline-trigger
