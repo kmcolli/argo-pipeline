@@ -1,0 +1,1 @@
+kam bootstrap --service-repo-url https://github.com/kmcolli/argo-pipeline --gitops-repo-url https://github.com/kmcolli/argo-pipeline-gitops --image-repo us.icr.io/kmcolli/argo-pipeline/argo-gitops --dockercfgjson ~/.docker/config.json --git-host-access-token $GIT_TOKEN --output ~/Documents/GitHub/argo-pipeline-gitops --push-to-git=true --overwrite

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../tekton-tutorial"
+		},
+		{
+			"path": "../taxi-gitops"
+		}
+	]
+}
