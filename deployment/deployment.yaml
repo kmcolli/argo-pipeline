@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - imagePullPolicy: IfNotPresent
-        image: us.icr.io/argo-pipeline/web
+        image: us.icr.io/argo-pipeline/web:latest
         name: web
         ports:
         - containerPort: 80
