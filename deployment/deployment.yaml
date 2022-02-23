@@ -21,7 +21,7 @@ spec:
         app: argo-pipeline
     spec:
       containers:
-      - imagePullPolicy: IfNotPresent
+      - imagePullPolicy: Always
         image: us.icr.io/argo-pipeline/web:latest
         name: web
         ports:
