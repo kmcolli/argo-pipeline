@@ -29,7 +29,7 @@ spec:
       - name: imageUrl
         value: us.icr.io/argo-pipeline/web
       workspaces:
-      - name: argo-pipeline-source-pvc
+      - name: git-source
         volumeClaimTemplate:
           spec:
             accessModes:
