@@ -46,4 +46,4 @@ spec:
           workspace: git-source
       params:
         - name: IMAGE
-          value: $(params.imageUrl):$(params.imageTag)
+          value: $(params.imageUrl):$(params.gitRevision)
