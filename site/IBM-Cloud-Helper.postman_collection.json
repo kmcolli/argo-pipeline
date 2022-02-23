@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "55affb28-0183-4cf2-9502-885c4d22e4b3",
+		"name": "IBM Cloud Helper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "COS",
+			"item": [
+				{
+					"name": "Get a List of Buckets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"search_text\": \"string\",\n  \"metadata\": {},\n  \"cos_apikey\": \"string\",\n  \"cos_instanceid\": \"string\",\n  \"cos_endpoint\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.ibmcloudhelper.com:8000/api/v1/getBuckets/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ibmcloudhelper",
+								"com"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getBuckets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Metadata From a Bucket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bucket\": \"string\",\n  \"cos_apikey\": \"string\",\n  \"cos_instanceid\": \"string\",\n  \"cos_endpoint\": \"string\",\n  \"cos_access_key\": \"string\",\n  \"cos_access_id\": \"string\",\n  \"cos_region\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.ibmcloudhelper.com:8000/api/v1/getCOSMetadata/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ibmcloudhelper",
+								"com"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getCOSMetadata",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete COS Bucket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bucket_name\": \"string\",\n  \"cos_apikey\": \"string\",\n  \"cos_instanceid\": \"string\",\n  \"cos_endpoint\": \"string\",\n  \"cos_access_key\": \"string\",\n  \"cos_access_id\": \"string\",\n  \"cos_region\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.ibmcloudhelper.com:8000/api/v1/deleteCosBucket/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ibmcloudhelper",
+								"com"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"deleteCosBucket",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Metadata to COS Bucket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"string\",\n  \"metadata\": {},\n  \"cos_apikey\": \"string\",\n  \"cos_instanceid\": \"string\",\n  \"cos_endpoint\": \"string\",\n  \"cos_access_key\": \"string\",\n  \"cos_access_id\": \"string\",\n  \"cos_region\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.ibmcloudhelper.com:8000/api/v1/addCOSMetadata/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ibmcloudhelper",
+								"com"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"addCOSMetadata",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Copy Bucket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CP4D",
+			"item": []
+		},
+		{
+			"name": "VPC",
+			"item": []
+		},
+		{
+			"name": "Classic",
+			"item": []
+		},
+		{
+			"name": "PX",
+			"item": []
+		},
+		{
+			"name": "OpenShift",
+			"item": []
+		}
+	]
+}
