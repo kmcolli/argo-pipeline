@@ -45,9 +45,6 @@ spec:
     script: |
       CHECKOUT_DIR="$(workspaces.output.path)/$(params.subdirectory)"
       
-      echo -n "$(params.revision)"
-
-      echo -n "$(params.revision)" > $(results.git-branch.path)
       
       cleandir() {
         # Delete any existing contents of the repo directory if it exists.
@@ -84,5 +81,5 @@ spec:
         exit $EXIT_CODE
       fi
       # Make sure we don't add a trailing newline to the result!
-      echo -n "$RESULT_BRANCH
+      echo -n "$RESULT_BRANCH"
       echo -n "$RESULT_SHA" > $(results.commit.path)
