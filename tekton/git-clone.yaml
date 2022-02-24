@@ -37,12 +37,15 @@ spec:
   results:
   - name: commit
     description: The precise commit SHA that was fetched by this Task
+  - name: git-branch
   steps:
   - name: clone
     image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:latest
     script: |
       CHECKOUT_DIR="$(workspaces.output.path)/$(params.subdirectory)"
-
+      
+      echo -n "$(params.revision)" > $(results.git-branch)
+      
       cleandir() {
         # Delete any existing contents of the repo directory if it exists.
         #
