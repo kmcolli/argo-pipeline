@@ -73,8 +73,9 @@ spec:
         -submodules="$(params.submodules)" \
         -depth="$(params.depth)"
       cd "$CHECKOUT_DIR"
-      RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
       RESULT_BRANCH="$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')"
+      RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
+      
       EXIT_CODE="$?"
       if [ "$EXIT_CODE" != 0 ]
       then
