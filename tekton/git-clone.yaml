@@ -38,12 +38,15 @@ spec:
   - name: commit
     description: The precise commit SHA that was fetched by this Task
   - name: git-branch
+    description: returning just the branch name
   steps:
   - name: clone
     image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:latest
     script: |
       CHECKOUT_DIR="$(workspaces.output.path)/$(params.subdirectory)"
       
+      echo -n "$(params.revision)
+
       echo -n "$(params.revision)" > $(results.git-branch.path)
       
       cleandir() {
