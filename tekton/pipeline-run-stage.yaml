@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: argo-pipeline-
+spec:
+  pipelineRef:
+    name: build-pipeline
+  params:
+    - name: gitUrl
+      value: https://github.com/kmcolli/argo-pipeline
+    - name: gitRevision
+      value: stage
+    - name: imageUrl
+      value: us.icr.io/argo-pipeline/web
+    - name: imageTag
+      value: "stage"
+  serviceAccountName: pipeline-account
+  workspaces:
+    - name: git-source
+      persistentVolumeClaim:
+        claimName: argo-pipeline-source-pvc
