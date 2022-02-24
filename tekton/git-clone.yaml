@@ -83,4 +83,5 @@ spec:
         exit $EXIT_CODE
       fi
       # Make sure we don't add a trailing newline to the result!
+      echo -n "$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')"
       echo -n "$RESULT_SHA" > $(results.commit.path)
