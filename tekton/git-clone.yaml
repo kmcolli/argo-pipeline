@@ -45,7 +45,7 @@ spec:
     script: |
       CHECKOUT_DIR="$(workspaces.output.path)/$(params.subdirectory)"
       
-      echo -n "$(params.revision)
+      echo -n "$(params.revision)"
 
       echo -n "$(params.revision)" > $(results.git-branch.path)
       
