@@ -16,7 +16,7 @@ spec:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      generateName: build-pipeline-$(tt.params.git-repo-name)-
+      generateName: build-pipeline-$(tt.params.git-repo-name)-$(tt.params.git-revision)
     spec:
       serviceAccountName: pipeline-account
       pipelineRef:
