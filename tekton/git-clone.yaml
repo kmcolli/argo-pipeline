@@ -44,7 +44,7 @@ spec:
     script: |
       CHECKOUT_DIR="$(workspaces.output.path)/$(params.subdirectory)"
       
-      echo -n "$(params.revision)" > $(results.git-branch)
+      echo -n "$(params.revision)" > $(results.git-branch.path)
       
       cleandir() {
         # Delete any existing contents of the repo directory if it exists.
