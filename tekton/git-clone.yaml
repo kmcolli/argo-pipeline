@@ -73,7 +73,7 @@ spec:
         -submodules="$(params.submodules)" \
         -depth="$(params.depth)"
       cd "$CHECKOUT_DIR"
-      RESULT_BRANCH="$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')"
+      RESULT_BRANCH="$(git rev-parse --abbrev-ref HEAD | tr -d '\n')"
       RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
       
       EXIT_CODE="$?"
