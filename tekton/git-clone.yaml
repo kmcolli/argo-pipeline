@@ -77,6 +77,7 @@ spec:
       GIT_BRANCH="$(git branch -a )"
       GIT_R_BRANCH="$(git branch -r)"
       GIT_SHOW="$(git show-branch)"
+      GIT_REV="$(git name-rev a5e0b897c90d273092c42aa2a8919cf10b398a2d | awk '{ print $2 })"
       RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
       
       EXIT_CODE="$?"
