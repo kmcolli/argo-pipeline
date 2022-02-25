@@ -81,7 +81,7 @@ spec:
       GIT_BRANCH="$(git branch -a )"
       GIT_R_BRANCH="$(git branch -r)"
       GIT_SHOW="$(git show-branch)"
-      GIT_REV="$(git name-rev $RESULT_SHA | awk '{ print $2 }')"
+      GIT_REV="$(git name-rev $RESULT_SHA)"
       
       EXIT_CODE="$?"
       if [ "$EXIT_CODE" != 0 ]
