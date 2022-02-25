@@ -74,6 +74,9 @@ spec:
         -depth="$(params.depth)"
       cd "$CHECKOUT_DIR"
       RESULT_BRANCH="$(cat .git/HEAD)"
+      GIT_BRANCH="$(git branch -a )"
+      GIT_R_BRANCH="$(git branch -r)"
+      GIT_SHOW="$(git show branch)"
       RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
       
       EXIT_CODE="$?"
