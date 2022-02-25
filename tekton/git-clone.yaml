@@ -76,7 +76,7 @@ spec:
         -depth="$(params.depth)"
       cd "$CHECKOUT_DIR"
       RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
-      
+      RESULT_BRANCH="$(echo -n $params.git-branch -F'/' '{print $3}')"
       
       EXIT_CODE="$?"
       if [ "$EXIT_CODE" != 0 ]
@@ -84,5 +84,5 @@ spec:
         exit $EXIT_CODE
       fi
       # Make sure we don't add a trailing newline to the result!
-      echo -n "$params.git-branch" -F'-'/ '{print $3}' > $(results.git-branch.path)
+      echo -n "$RESULT_BRANCH > $(results.git-branch.path)
       echo -n "$RESULT_SHA" > $(results.commit.path)
