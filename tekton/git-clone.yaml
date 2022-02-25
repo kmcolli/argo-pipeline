@@ -79,6 +79,7 @@ spec:
       RESULT_BRANCH="$(cat .git/HEAD)"
       
       GIT_BRANCH="$(git branch --contains $RESULT_SHA )"
+      
       GIT_R_BRANCH="$(git branch -r)"
       GIT_SHOW="$(git show-branch)"
       GIT_REV="$(git name-rev $RESULT_SHA)"
