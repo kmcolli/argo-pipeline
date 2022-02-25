@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: argo-pipeline
+  name: web
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: argo-pipeline
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: argo-pipeline
+    spec:
+      containers:
+      - imagePullPolicy: Always
+        image: us.icr.io/argo-pipeline/web-stage:latest
+        name: web
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        - containerPort: 443
+          protocol: TCP
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits: 
+            memory: "128Mi"
+            cpu: "500m"
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: all-icr-io
+      restartPolicy: Always
+      schedulerName: default-scheduler
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: argo-pipeline
+  name: argo-pipeline-service
+  namespace: default
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: https
+    nodePort: 31228
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  - name: http
+    nodePort: 30771
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: argo-pipeline
+  sessionAffinity: None
+  type: LoadBalancer
