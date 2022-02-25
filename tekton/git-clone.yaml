@@ -84,5 +84,5 @@ spec:
         exit $EXIT_CODE
       fi
       # Make sure we don't add a trailing newline to the result!
-      echo -n "$RESULT_BRANCH > $(results.git-branch.path)
+      echo -n "$RESULT_BRANCH" > $(results.git-branch.path)
       echo -n "$RESULT_SHA" > $(results.commit.path)
