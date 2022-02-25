@@ -76,7 +76,7 @@ spec:
         -depth="$(params.depth)"
       cd "$CHECKOUT_DIR"
       RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
-      RESULT_BRANCH="$(echo -n $params.git-branch -F'/' '{print $3}')"
+      RESULT_BRANCH="$(params.git-branch)"
       
       EXIT_CODE="$?"
       if [ "$EXIT_CODE" != 0 ]
