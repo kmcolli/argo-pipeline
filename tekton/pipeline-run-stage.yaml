@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: argo-pipeline-
+  generateName: argo-pipeline-stage-
 spec:
   pipelineRef:
     name: build-pipeline

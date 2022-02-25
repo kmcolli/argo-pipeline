@@ -14,6 +14,7 @@ spec:
     description: git revision to checkout (branch, tag, sha, ref�)
     type: string
     default: master
+  - name: git-branch
   - name: submodules
     description: defines if the resource should initialize and fetch the submodules
     type: string
@@ -75,14 +76,8 @@ spec:
         -depth="$(params.depth)"
       cd "$CHECKOUT_DIR"
       RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
+      RESULT_BRANCH="$(params.git-branch)"
       
-      RESULT_BRANCH="$(cat .git/HEAD)"
-      
-      GIT_BRANCH="$(git branch --contains $RESULT_SHA )"
-      
-      GIT_R_BRANCH="$(git branch -r)"
-      GIT_SHOW="$(git show-branch)"
-      GIT_REV="$(git name-rev $RESULT_SHA)"
       
       EXIT_CODE="$?"
       if [ "$EXIT_CODE" != 0 ]

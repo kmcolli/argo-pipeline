@@ -9,6 +9,7 @@ spec:
   - name: git-revision
     description: The git revision
     default: master
+  - name: git-branch
   - name: git-repo-name
     description: The name of the deployment to be created / patched
 
@@ -28,6 +29,8 @@ spec:
         value: $(tt.params.git-revision)
       - name: imageUrl
         value: us.icr.io/argo-pipeline/web
+      - name: git-branch
+        value: $(tt.params.git-branch)
       workspaces:
       - name: git-source
         volumeClaimTemplate:
